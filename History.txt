@@ -1,0 +1,14 @@
+=== 1.0.1 / 2008-04-17
+
+* 3 minor enhancements
+  * You may override the format set by the before_filter in the Rails module
+  * Exposed request_is_from_mobile? as a helper method to views (so you don't have to recreate each view to just expose/hide features for mobile devices)
+  * More documentation
+  
+
+=== 1.0.0 / 2008-04-17
+
+* 1 major enhancement
+
+  * Birthday!
+
