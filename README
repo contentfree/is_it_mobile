@@ -1,7 +1,45 @@
-is_it_mobile============
-Description goes here.
+= is_it_mobile
+* http://rubyforge.org/projects/contentfree/
 
-COPYRIGHT
-=========
+== DESCRIPTION:
 
-Copyright (c) 2008 Dave Myron. See LICENSE for details.
+Simply determines if a user agent is for a mobile device.
+
+Comes ready with a module for Rails 2.0 to enable multiviews (respond_to with a custom mimetype) for mobile devices (see Synopsis).
+
+
+== FEATURES/PROBLEMS:
+
+* Fast & Lightweight (doesn't use anything like WURFL, which would be overkill for a quick check)
+
+
+== SYNOPSIS:
+
+The lightweight tests used in IsItMobile are almost completely based on the work of Andy Moore in an 
+article at http://www.andymoore.info/php-to-detect-mobile-phones/. I added a couple more
+user agents to the mix and obviously Rubified it.
+
+It recognizes 99% of the mobile user agents from http://www.zytrax.com/tech/web/mobile_ids.html
+It has nearly no false positives using the user agents from http://www.zytrax.com/tech/web/browser_ids.htm
+The ones that don't quite pass are very rare (and some are even questionable appearing in their respective lists)
+
+
+== INSTALL:
+
+sudo gem install contentfree-is_it_mobile --source http://gems.github.com
+
+
+== USAGE:
+
+With Rails 2.0, simply add this to config/environment.rb:
+  config.gem 'contentfree-is_it_mobile', :lib => 'is_it_mobile/rails', :source => "http://gems.github.com"
+
+Then, just create your views using suffixes of mobile.erb instead of html.erb
+
+You can also just use IsItMobile directly:
+IsItMobile.mobile?( 'NokiaN90-1/3.0545.5.1 Series60/2.8 Profile/MIDP-2.0 Configuration/CLDC-1.1' ) # => true
+
+
+== REQUIREMENTS:
+
+If using Rails, version must be >= 2.0 for multiview capability
