@@ -1,5 +1,5 @@
 class IsItMobile
-  POPULAR_MOBILE_USER_AGENT_BEGINNINGS = %w(
+  POPULAR_MOBILE_USER_AGENT_PIECES = /(#{%w(
     w3c  acs- alav alca amoi audi avan benq bird blac blaz 
     brew cell cldc cmd- dang doco eric hipt inno ipaq java 
     jigs kddi keji leno lg-c lg-d lg-g lge- maui maxo midp 
@@ -7,8 +7,8 @@ class IsItMobile
     pana pant phil play port prox qwap sage sams sany sch- 
     sec- send seri sgh- shar sie- siem smal smar sony sph- 
     symb t-mo teli tim- tosh tsm- upg1 upsi vk-v voda wap- 
-    wapa wapi wapp wapr webc winw winw xda xda-
-  )
+    wapa wapi wapp wapr webc webo winw winw xda xda-
+  ).join('|')})/i
   
   POPULAR_MOBILE_USER_AGENT_REGEX = /(mobile|up.browser|up.link|mmp|symbian|phone|midp|wap|mini|ppc;|playstation|palm|wii|nitro)/i
   
@@ -16,7 +16,7 @@ class IsItMobile
   def self.mobile?( user_agent, accepts = '' )
     !!( user_agent =~ POPULAR_MOBILE_USER_AGENT_REGEX || 
         accepts.index('application/vnd.wap.xhtml+xml') ||
-        POPULAR_MOBILE_USER_AGENT_BEGINNINGS.include?(user_agent[0,4]))
+        user_agent =~ POPULAR_MOBILE_USER_AGENT_PIECES )
   end
   
   # Some checks for some specific, popular mobile devices
