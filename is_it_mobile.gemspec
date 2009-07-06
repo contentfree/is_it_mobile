@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2009-05-04}
   s.description = %q{TODO}
   s.email = %q{dave.myron@contentfree.com}
-  s.files = ["VERSION.yml", "lib/is_it_mobile", "lib/is_it_mobile/rails.rb", "lib/is_it_mobile.rb", "spec/is_it_mobile_spec.rb", "spec/spec_helper.rb"]
+  s.files = ['README', 'LICENSE', 'Rakefile', "VERSION.yml", "lib/is_it_mobile", "lib/is_it_mobile/rails.rb", "lib/is_it_mobile.rb", "spec/is_it_mobile_spec.rb", "spec/spec_helper.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/contentfree/is_it_mobile}
   s.rdoc_options = ["--inline-source", "--charset=UTF-8"]
