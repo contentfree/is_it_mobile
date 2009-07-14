@@ -22,7 +22,7 @@ module IsItMobile::ForRails
       before_filter :change_request_format_to_mobile, :if => :request_is_from_mobile?
 
       helper_method :request_is_from_mobile?, :mobile?
-      %w(iphone android blackberry windows_mobile symbian).each do |device|
+      IsItMobile::POPULAR_DEVICES.each do |device|
         helper_method "request_is_from_#{device}?".to_sym, "#{device}?".to_sym
       end
     end
@@ -37,7 +37,7 @@ module IsItMobile::ForRails
     def request_is_from_mobile?
       @request_is_from_mobile ||= 
         request.format.to_sym == self.class.mobile_format || 
-        IsItMobile.mobile?( request.env['HTTP_USER_AGENT'] || '', request.env['HTTP_ACCEPT'] || '' )
+        IsItMobile.mobile?( request.env['HTTP_USER_AGENT'].to_s, request.env['HTTP_ACCEPT'].to_s )
     end
     alias :mobile? :request_is_from_mobile?
   
@@ -49,7 +49,7 @@ module IsItMobile::ForRails
     # Some helpers for popular devices - these don't (yet) wrangle the request format
     # This will create methods named "request_is_from_(device)?" which are also aliased to 
     # just "(device)?"
-    %w(iphone android blackberry windows_mobile symbian).each do |device|
+    IsItMobile::POPULAR_DEVICES.each do |device|
       module_eval <<-EOD
         def request_is_from_#{device}?
           @request_is_from_#{device} ||= IsItMobile.#{device}?( request.env['HTTP_USER_AGENT'] )
