@@ -7,7 +7,6 @@ class IsItMobile
     :opera_mini     => 'opera mini',
     :blackberry     => 'blackberry',
     :palm           => 'palm os|palm|hiptop|avantgo|plucker|xiino|blazer|elaine',
-    :zune           => 'zune',
     :windows_mobile => 'windows ce; ppc;|windows ce; smartphone;|windows ce; iemobile',
     :symbian        => 'symbian',
     :wii            => 'wii',
