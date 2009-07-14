@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{is_it_mobile}
-  s.version = "1.2.0"
+  s.version = "1.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dave Myron"]
-  s.date = %q{2009-07-06}
+  s.date = %q{2009-07-13}
   s.description = %q{TODO}
   s.email = %q{dave.myron@contentfree.com}
   s.extra_rdoc_files = [
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/contentfree/is_it_mobile}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.3}
+  s.rubygems_version = %q{1.3.4}
   s.summary = %q{TODO}
   s.test_files = [
     "spec/is_it_mobile_spec.rb",
