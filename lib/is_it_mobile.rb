@@ -6,14 +6,15 @@ class IsItMobile
     :android        => 'android',
     :opera_mini     => 'opera mini',
     :blackberry     => 'blackberry',
-    :palm           => 'palm os|palm|hiptop|avantgo|plucker|xiino|blazer|elaine',
+    :palm           => 'palm os|palm|avantgo|plucker|xiino|blazer|elaine|pre/\d',
+    :sidekick       => 'hiptop',
     :windows_mobile => 'windows ce; ppc;|windows ce; smartphone;|windows ce; iemobile',
     :symbian        => 'symbian',
     :wii            => 'wii',
     :playstation    => 'playstation',
     :other          => 'up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|kindle|mobile|pda|psp|treo'
   }
-  POPULAR_MOBILE_USER_AGENT_REGEX = %r{(#{MOBILE_USER_AGENTS.collect{|category,regex| regex}.join('|')})}i
+  POPULAR_MOBILE_USER_AGENT_REGEX = %r{(#{MOBILE_USER_AGENTS.collect{|category,regex| regex}.join(')|(')})}i
   POPULAR_DEVICES = MOBILE_USER_AGENTS.keys.reject{ |key| key == :other }
   
   MOBILE_ACCEPTS_HEADERS = %r{(text/vnd\.wap\.wml|application/vnd\.wap\.xhtml\+xml)}i
