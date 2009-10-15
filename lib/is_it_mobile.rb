@@ -8,11 +8,11 @@ class IsItMobile
     :blackberry     => 'blackberry',
     :palm           => 'palm os|palm|avantgo|plucker|xiino|blazer|elaine|pre/\d',
     :sidekick       => 'hiptop',
-    :windows_mobile => 'windows ce; ppc;|windows ce; smartphone;|windows ce; iemobile',
+    :windows_mobile => 'windows ce; ppc;|windows ce; smartphone;|windows ce; iemobile|windows phone',
     :symbian        => 'symbian',
     :wii            => 'wii',
     :playstation    => 'playstation',
-    :other          => 'up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|kindle|mobile|pda|psp|treo'
+    :other          => 'up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|kindle|mobile|pda\b|psp|treo'
   }
   POPULAR_MOBILE_USER_AGENT_REGEX = %r{(#{MOBILE_USER_AGENTS.collect{|category,regex| regex}.join(')|(')})}i
   POPULAR_DEVICES = MOBILE_USER_AGENTS.keys.reject{ |key| key == :other }
