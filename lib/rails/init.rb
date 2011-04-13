@@ -1,6 +1,6 @@
 require 'is_it_mobile'
 
-Mime::Type.register_alias "text/html", :mobile
+Mime::Type.register_alias( "text/html", :mobile ) if defined?(Mime) && defined?(Mime::Type)
 
 # When IsItMobile::ForRails is included in a controller, a before filter is
 # added that will reset the request format to the value of

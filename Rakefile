@@ -4,10 +4,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
     s.name = "is_it_mobile"
-    s.summary = %Q{TODO}
+    s.summary = %Q{Simply determines if a user agent is for a mobile device.}
     s.email = "dave.myron@contentfree.com"
     s.homepage = "http://github.com/contentfree/is_it_mobile"
-    s.description = "TODO"
+    s.description = "Simply determines if a user agent is for a mobile device."
     s.authors = ["Dave Myron"]
   end
 rescue LoadError
@@ -23,16 +23,20 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |t|
-  t.libs << 'lib' << 'spec'
-  t.spec_files = FileList['spec/**/*_spec.rb']
-end
+begin
+  require 'spec/rake/spectask'
+  Spec::Rake::SpecTask.new(:spec) do |t|
+    t.libs << 'lib' << 'spec'
+    t.spec_files = FileList['spec/**/*_spec.rb']
+  end
 
-Spec::Rake::SpecTask.new(:rcov) do |t|
-  t.libs << 'lib' << 'spec'
-  t.spec_files = FileList['spec/**/*_spec.rb']
-  t.rcov = true
+  Spec::Rake::SpecTask.new(:rcov) do |t|
+    t.libs << 'lib' << 'spec'
+    t.spec_files = FileList['spec/**/*_spec.rb']
+    t.rcov = true
+  end
+rescue LoadError
+  puts "RSpec 1.x is not available."
 end
 
 begin
@@ -42,4 +46,3 @@ rescue LoadError
   puts "Cucumber is not available. In order to run features, you must: sudo gem install cucumber"
 end
 
-task :default => :spec

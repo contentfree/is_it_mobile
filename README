@@ -5,7 +5,7 @@
 
 Simply determines if a user agent is for a mobile device.
 
-Comes ready with a module for Rails 2.0 to enable multiviews (respond_to with a custom mimetype) for mobile devices (see Synopsis).
+Comes ready with a module for Rails 2 & 3 to enable multiviews (respond_to with a custom mimetype) for mobile devices (see Synopsis).
 
 
 == FEATURES/PROBLEMS:
