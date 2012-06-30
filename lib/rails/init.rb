@@ -16,7 +16,7 @@ module IsItMobile::ForRails
     base.class_eval do
       include ::IsItMobile::ForRails::InstanceMethods
       
-      class_inheritable_accessor :mobile_format
+      class_attribute :mobile_format
       self.mobile_format = :mobile
 
       before_filter :change_request_format_to_mobile, :if => :request_is_from_mobile?
